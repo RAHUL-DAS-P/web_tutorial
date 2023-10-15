@@ -5,7 +5,15 @@ for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
 function handleClick() {
     var buttonInnerHTML = this.innerHTML;
-    switch (buttonInnerHTML) {
+    makeSound(buttonInnerHTML);
+}
+
+document.addEventListener("keypress", function(event) {
+    makeSound(event.key);
+});
+
+function makeSound(key) {
+    switch (key) {
         case "w":
             var audio = new Audio("sounds/tom-1.mp3");
         break;
@@ -36,4 +44,3 @@ function handleClick() {
     }
     audio.play();
 }
-
