@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -9,7 +9,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
 
+app.get("/random", (req, res) => {
+  const index = Math.floor(Math.random() * jokes.length);
+  res.json(jokes[index]);
+});
+
 //2. GET a specific joke
+
+
 
 //3. GET a jokes by filtering on the joke type
 
